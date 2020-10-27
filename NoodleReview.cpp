@@ -1,19 +1,22 @@
 //NoodleReview implementation class
+#ifndef NOODLEREVIEW_CPP
+#define NOODLEREVIEW_CPP
 
 #include "NoodleReview.h"
 #include <iostream>
-#include <string>
-#include <vector>
+
+class LinkedList;
 using namespace std;
 
-void NoodleReview::display_noodle_reviews(vector<NoodleReview> vec_nr)
+void NoodleReview::display_noodle_reviews(LinkedList *link_nr)
 {
-	for (NoodleReview e : vec_nr)
+	size_t size = link_nr->getSize();
+	for (size_t i = 0; i < size; i++)
 	{
-		cout << assemble_noodle_review(e) << "hii" << endl;
+		cout << assemble_noodle_review(*link_nr->get(i)) <<  endl;
 	}
 }
-string assemble_noodle_review(NoodleReview& noodle_r)
+string assemble_noodle_review(NoodleReview &noodle_r)
 {
 	return to_string(noodle_r.review) + " " + noodle_r.brand + " " + noodle_r.variety + " " + noodle_r.style
 		+ " " + noodle_r.country + " " + to_string(noodle_r.stars) + " " + noodle_r.ten;
@@ -60,3 +63,4 @@ string NoodleReview::get_top_ten()
 {
 	return NoodleReview::ten;
 }
+#endif

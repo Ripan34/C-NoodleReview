@@ -1,14 +1,17 @@
+#ifndef IORUNNER_CPP
+#define IORUNNER_CPP
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include "IoRunner.h"
-#include <string>
+#include <vector>
 using namespace std;
 
-vector<NoodleReview> IoRunner::read_from_file(string file_name)
+LinkedList* IoRunner::read_from_file(string file_name)
 {
 	string line;
-	vector<NoodleReview> return_vec;
+	LinkedList *return_link = new LinkedList();
 	ifstream myfile(file_name);
 	if (myfile.is_open())
 	{
@@ -39,7 +42,7 @@ vector<NoodleReview> IoRunner::read_from_file(string file_name)
 					continue;
 				}
 
-				for (int i = 0; i < data.size(); i++)
+				for (size_t i = 0; i < data.size(); i++)
 				{
 					if (data.at(i).compare("Unrated") == 0)
 						continue;
@@ -71,26 +74,34 @@ vector<NoodleReview> IoRunner::read_from_file(string file_name)
 					}
 				}
 				data.clear();
-				return_vec.push_back(NoodleReview(rev, brn, var, sty, cntr, strs, ttn));
+				NoodleReview *r = new NoodleReview(rev, brn, var, sty, cntr, strs, ttn);
+				return_link->add_data(r);
+
 			}
 		}
 	}
 	else
 		cout << "error opening the file" << endl;
-
-	return return_vec;
+	return return_link;
 
 }
-int IoRunner::write_to_file(string file_name, vector<NoodleReview> input_data)
+int IoRunner::write_to_file(string file_name, LinkedList *input_data)
 {
 	ofstream myfile(file_name);
+	size_t size = input_data->getSize();
 	if (myfile.is_open())
 	{
-		myfile << "Writing this to a file." << endl;
-		myfile << "Test writing" << endl;
+		for (size_t i = 0; i < size; i++)
+		{
+			NoodleReview* noodle_r = input_data->get(i);
+			string writeStr(to_string(noodle_r->get_review_number()) + " " + noodle_r->get_brand() + " " + noodle_r->get_variety() + " " + noodle_r->get_style()
+				+ " " + noodle_r->get_country() + " " + to_string(noodle_r->get_stars()) + " " + noodle_r->get_top_ten() + "\n");
+			myfile << writeStr;
+		}
 		myfile.close();
 		return 0;
 	}
 	else
 		return 1;
 }
+#endif

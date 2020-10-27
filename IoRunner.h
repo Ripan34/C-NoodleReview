@@ -1,7 +1,10 @@
 #pragma once
+#ifndef IORUNNER_H
+#define IORUNNER_H
+
 #include <iostream>
 #include "FileIO.h"
-#include "NoodleReview.h"
+//#include "LinkedList.h"
 using namespace std;
 
 
@@ -12,6 +15,7 @@ public:
 	{
 		cout << "FileIO class object has started." << endl;
 	}
-	vector<NoodleReview> read_from_file(string file_name);
-	int write_to_file(string file_name, vector<NoodleReview> input_data);
+	LinkedList* read_from_file(string file_name);
+	int write_to_file(string file_name, LinkedList *input_data);
 };
+#endif

@@ -1,9 +1,14 @@
 #pragma once
-#pragma once
+#ifndef NOODLEREVIEW_H
+#define NOODLEREVIEW_H
+
 #include <string>
-#include <string>
-#include <vector>
+#include "LinkedList.h"
+#include <iostream>
+
 using namespace std;
+class LinkedList;
+
 class NoodleReview {
 
 private:
@@ -26,7 +31,7 @@ public:
 	string get_country();
 	double get_stars();
 	string get_top_ten();
-	void display_noodle_reviews(vector<NoodleReview> vec_nr);
-	friend string assemble_noodle_review(NoodleReview& noodle_r);
-
+	void display_noodle_reviews(LinkedList* link_nr);
+	friend string assemble_noodle_review(NoodleReview &noodle_r);
 };
+#endif

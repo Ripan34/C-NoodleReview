@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\ripan\Desktop\SJSU\SEM3\CS144\Assignment5\Assignment5\</FILEPATH>
+      <FILENAME>NoodleReview.cpp</FILENAME>
+      <LINE>31</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NoodleReview::stars' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NoodleReview::{ctor}</FUNCTION>
+    <DECORATED>??0NoodleReview@@QAE@XZ</DECORATED>
+    <FUNCLINE>31</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>NoodleReview::stars</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\ripan\Desktop\SJSU\SEM3\CS144\Assignment5\Assignment5\</FILEPATH>
+      <FILENAME>NoodleReview.cpp</FILENAME>
+      <LINE>31</LINE>
+      <COLUMN>14</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'NoodleReview::review' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>NoodleReview::{ctor}</FUNCTION>
+    <DECORATED>??0NoodleReview@@QAE@XZ</DECORATED>
+    <FUNCLINE>31</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>NoodleReview::review</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
